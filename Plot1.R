@@ -16,5 +16,20 @@ if(!file.exists(fileD)){
 
 unzip(fileD, exdir="./data")
 
-hpc <- read.csv2("./data/household_power_consumption.txt")
+hpc <- read.csv2("./data/household_power_consumption.txt",
+                 na.strings = "?")
 
+hpc <- transform(hpc, Global_active_power = as.numeric(Global_active_power),
+                 Date = as.Date(Date, "%d/%m/%Y"))
+
+hpc <- transform(hpc,gapkw = Global_active_power/1000 )
+
+hpcFeb <- subset(hpc, Date >= as.Date("01/02/2007","%d/%m/%Y") & 
+                   Date <= as.Date("02/02/2007","%d/%m/%Y"))
+
+hist(hpcFeb$gapkw, col="red",
+    xlim = c(0,6),
+#     axis(side=1, at=c(0,2,4,6)),
+     breaks=16,
+     xlab="Global Active Power (kilowatts)",
+     main="Global Active Power")
