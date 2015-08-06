@@ -16,3 +16,5 @@ if(!file.exists(fileD)){
 
 unzip(fileD, exdir="./data")
 
+hpc <- read.csv2("./data/household_power_consumption.txt")
+
