@@ -2,7 +2,7 @@
 # Exploratory Data Analysis
 # Project 1
 #
-#Load Data, unzip and generate Plot1
+# download data, unzip, load data and generate Plot1
 #
 if(!file.exists("./data")){
   dir.create("./data")
