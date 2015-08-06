@@ -28,8 +28,14 @@ hpcFeb <- subset(hpc, Date >= as.Date("01/02/2007","%d/%m/%Y") &
                    Date <= as.Date("02/02/2007","%d/%m/%Y"))
 
 hist(hpcFeb$gapkw, col="red",
-    xlim = c(0,6),
+    xlim =c(0,8),
+    ylim =c(0,1200),
 #     axis(side=1, at=c(0,2,4,6)),
-     breaks=16,
+#     breaks=16,
+    xaxt="n",
+    breaks=seq(0,8,.5),
+#     breaks=16,
      xlab="Global Active Power (kilowatts)",
      main="Global Active Power")
+
+axis(1, at=seq(0,6,2))
