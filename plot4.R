@@ -28,7 +28,8 @@ hpc <- transform(hpc,gapkw = Global_active_power/1000 )
 hpcFeb <- subset(hpc, DateTime >= strptime("01/02/2007","%d/%m/%Y") & 
                    DateTime < strptime("03/02/2007","%d/%m/%Y"))
 
-png("plot3.png",width = 480, height = 480)
+png("plot4.png",width = 480, height = 480)
+par(mfrow=c(2,2))
 plot(x=hpcFeb$DateTime,y=hpcFeb$Sub_metering_1, 
         type='l',
         xlab="",
