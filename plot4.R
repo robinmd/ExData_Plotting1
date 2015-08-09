@@ -2,7 +2,7 @@
 # Exploratory Data Analysis
 # Project 1
 #
-# download data, unzip, load data and generate Plot3
+# download data, unzip, load data and generate Plot4
 #
 if(!file.exists("./data")){
   dir.create("./data")
@@ -30,6 +30,17 @@ hpcFeb <- subset(hpc, DateTime >= strptime("01/02/2007","%d/%m/%Y") &
 
 png("plot4.png",width = 480, height = 480)
 par(mfrow=c(2,2))
+
+plot(x=hpcFeb$DateTime,y=hpcFeb$gapkw, 
+     type='l',
+     xlab="",
+     ylab="Global Active Power (kilowatts)")
+
+plot(x=hpcFeb$DateTime,y=hpcFeb$Voltage, 
+     type='l',
+     xlab="datetime",
+     ylab="Voltage")
+
 plot(x=hpcFeb$DateTime,y=hpcFeb$Sub_metering_1, 
         type='l',
         xlab="",
@@ -40,6 +51,12 @@ legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        col=c("black","red","blue"),
        lty=c(1,1),lwd=c(2.5,2.5)
        )
+
+plot(x=hpcFeb$DateTime,y=hpcFeb$Global_reactive_power, 
+     type='l',
+     xlab="datatime",
+     ylab="Global_reactive_power")
+
 dev.off()
 
 
